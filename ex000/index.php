@@ -10,10 +10,13 @@
     <body>
         <h1>
             <?php 
-            $nome = "Eliel";
             echo "Olá, Mundo! \u{1F30E}";
             ?>
         </h1>
+        <?php 
+        $nome = "Eliel";
+        echo "Meu nome é $nome";
+        ?>
         <p>
             Vamos tentar nos livrar da maldição 
         </p>
