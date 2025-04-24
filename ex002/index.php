@@ -7,8 +7,11 @@
 </head>
 <body>
     <h1>Exemplo de php</h1>
-    <?php 
-    
+    <?php
+    // use a tag date_default_timezone_set para colocar a hora em fuso horario
+    date_default_timezone_set("America/Sao_Paulo");
+    echo "Hoje é dia" . date ("d/m/Y");
+    echo "E a hora autal" . date("G:i:s");
     ?>
 </body>
 </html>
