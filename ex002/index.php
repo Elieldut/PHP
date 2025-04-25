@@ -10,8 +10,18 @@
     <?php
     // use a tag date_default_timezone_set para colocar a hora em fuso horario
     date_default_timezone_set("America/Sao_Paulo");
-    echo "Hoje é dia" . date ("d/m/Y");
-    echo "E a hora autal" . date("G:i:s");
+    echo "Hoje é dia " . date ("d/m/Y");
+    echo "E a hora autal " . date("G:i:s");
     ?>
+    <br>
+    <br>
+   
+    <?php
+    $nome = "Eliel";
+    $sobrenome = "Alves";
+    const PAÍS = "Brasil";
+    echo "Prazer meu nome é $nome $sobrenome! Você mora no" . PAÍS ;
+    ?>
+
 </body>
 </html>
