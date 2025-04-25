@@ -19,8 +19,13 @@
     <?php
     $nome = "Eliel";
     $sobrenome = "Alves";
+    $curso = "TI";
     const PAÍS = "Brasil";
-    echo "Prazer meu nome é $nome $sobrenome! Você mora no" . PAÍS ;
+    echo "Prazer meu nome é $nome $sobrenome! Moro no " . PAÍS;
+    ?>
+<br>
+    <?php 
+    echo "e estou cursando $curso";
     ?>
 
 </body>
