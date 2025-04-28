@@ -34,7 +34,11 @@
     }
 
     $p = new Pessoa;
-    var_dump($p);
+    var_dump($p);   
+    const Estado = "MG";
+    $nome = "Eliel";
+    $sobrenome = "Alves";
+    echo "$nome $sobrenome! \u{1F596} Sou de " . Estado;
     ?>
 </body>
 </html>
