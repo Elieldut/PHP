@@ -37,8 +37,8 @@
     var_dump($p);   
     const Estado = "MG";
     $nome = "Eliel";
-    $sobrenome = "Alves";
-    echo "$nome $sobrenome! \u{1F596} Sou de " . Estado;
+    $sobrenome = "Alves \u{1F596}";
+    echo "$nome $sobrenome!  Sou de " . Estado;
     ?>
 </body>
 </html>
