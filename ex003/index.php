@@ -38,7 +38,8 @@
     const Estado = "MG";
     $nome = "Eliel";
     $sobrenome = "Alves \u{1F596}";
-    echo "$nome $sobrenome!  Sou de " . Estado;
+    echo "$nome \"Eliu\"  $sobrenome!  Sou de " . Estado;
+    echo " Estamos no " .date('Y');
     ?>
 </body>
 </html>
