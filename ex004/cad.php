@@ -12,8 +12,12 @@
     </header>
     <main>
         <?php
-        var_dump($_GET)
+        // var_dump($_GET); //$_GET $_POST $_COOKIES
+        $n = $_GET["nome"] ?? "SEM NOME";
+        $s = $_GET["sobrenome"] ?? "DESCONHECIDO";
+        echo "É um prazer te conhecer <strong>$n $s</strong>, este é o meu site! ";
         ?>
+        <p><a href="../ex004/index.html"><span>COME BACK</span></a></p>
     </main>
 </body>
 </html>

@@ -20,15 +20,30 @@ body {
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    
 }
 
-header, main, section, article {
+p{
+    text-align: center;
+    margin-left: 40%;
+}
+
+header, main, section, article{
     max-width: 700px;
 }
+
+/* @media(max-width:765px){
+    header, main, section, article {
+        max-width: 700px;
+        margin-top: 15%;
+    }
+    
+} */
 
 header > h1 {
     color: white;
     text-shadow: 3px 3px 0px black;
+    font-size:1.5rem;
 }
 
 main, section, article {
