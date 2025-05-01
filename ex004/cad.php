@@ -16,8 +16,8 @@
         $n = $_GET["nome"] ?? "SEM NOME";
         $s = $_GET["sobrenome"] ?? "DESCONHECIDO";
         echo "É um prazer te conhecer <strong>$n $s</strong>, este é o meu site! ";
-        $res = 50 / (2 + 3) ** 2;
-        echo "$res";
+        // $res = 50 / (2 + 3) ** 2;
+        // echo "$res"; Expressões Aritméticas 
         ?>
         <p><a href="../ex004/index.html"><span>COME BACK</span></a></p>
     </main>
