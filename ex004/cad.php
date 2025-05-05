@@ -18,6 +18,8 @@
         echo "É um prazer te conhecer <strong>$n $s</strong>, este é o meu site! ";
         // $res = 50 / (2 + 3) ** 2;
         // echo "$res"; Expressões Aritméticas 
+        $r = abs(-2000);
+        print("A resposta é $r");
         ?>
         <p><a href="../ex004/index.html"><span>COME BACK</span></a></p>
     </main>
