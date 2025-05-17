@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Real para Dólar com Número Aleatório</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #1a3c34, #2e8b57);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #background-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .icon {
+            position: absolute;
+            font-size: 24px;
+            color: #fff;
+            opacity: 0.7;
+            animation: floatAround 15s linear infinite;
+        }
+
+        @keyframes floatAround {
+            0% {
+                transform: translate(0, 0);
+                opacity: 0.7;
+            }
+            25% {
+                transform: translate(20vw, -20vh);
+                opacity: 0.9;
+            }
+            50% {
+                transform: translate(-30vw, 30vh);
+                opacity: 0.6;
+            }
+            75% {
+                transform: translate(40vw, -10vh);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(0, 0);
+                opacity: 0.7;
+            }
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            z-index: 1;
+            position: relative;
+            width: 300px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 100%;
+            }
+            .icon {
+                font-size: 18px;
+            }
+        }
+
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        .container button {
+            background: #2e8b57;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        #randomNumber {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        #resultado {
+            margin-top: 10px;
+        }
+        
+        @media screen and (min-width:768px){
+            .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            z-index: 1;
+            position: relative;
+            width: 500px;
+            height: 400px;
+        }
+        }
+
+        .max {
+            font-size: 18px;
+            margin-bottom: 10px;
+            background-color: #00a04573;
+        }
+    </style>
+</head>
+<body>
+    <div id="background-icons"></div>
+    <div class="container">
+        <h2>Conversor de Real para Dólar</h2>
+        <label class="max" for="valor">Quanto você tem na sua carteira?</label>
+        <input type="number" id="valor" step="0.01" placeholder="Digite o valor em reais">
+        <button onclick="converter()">CONVERTER</button>
+        <div id="resultado"></div>
+        <div id="randomNumber"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const background = document.getElementById("background-icons");
+            const iconCount = 50;
+            const moneyIcons = ["$", "R$", "€", "£", "¥", "₿", "₹", "₽", "₣", "₩"];
+
+            for (let i = 0; i < iconCount; i++) {
+                const icon = document.createElement("span");
+                icon.className = "icon";
+                icon.textContent = moneyIcons[Math.floor(Math.random() * moneyIcons.length)];
+                const randomLeft = Math.random() * 100 + "vw";
+                const randomTop = Math.random() * 100 + "vh";
+                const randomDelay = Math.random() * 15 + "s";
+                icon.style.left = randomLeft;
+                icon.style.top = randomTop;
+                icon.style.animationDelay = randomDelay;
+                icon.style.animationDirection = Math.random() > 0.5 ? "normal" : "reverse";
+                background.appendChild(icon);
+            }
+
+            generateRandomNumber();
+        });
+
+        function generateRandomNumber() {
+            const min = 0;
+            const max = 10000000000;
+            const num = Math.floor(Math.random() * (max - min + 1)) + min;
+            const output = `Convertendo um Número Aleatório entre ${min} e ${max}...`;
+            document.getElementById("randomNumber").innerHTML = output;
+        }
+
+        function converter() {
+            const valor = parseFloat(document.getElementById("valor").value);
+            if (isNaN(valor) || valor <= 0) {
+                document.getElementById("resultado").innerHTML = "<p>Por favor, insira um valor válido maior que 0.</p>";
+                return;
+            }
+
+            const cotacao = 5.66;
+            const dolar = valor / cotacao;
+
+            const formatterBRL = new Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL"
+            });
+            const formatterUSD = new Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "USD"
+            });
+
+            const realFormatado = formatterBRL.format(valor);
+            const dolarFormatado = formatterUSD.format(dolar);
+
+            document.getElementById("resultado").innerHTML = `<p>Seus ${realFormatado} equivalem a ${dolarFormatado}</p>`;
+        }
+    </script>
+</body>
+</html>
